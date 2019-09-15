@@ -1,0 +1,30 @@
+body, html {
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .bg {
+    background-image: url("../images/TETSUO.jpg");
+    height: 100vh; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  header {
+     text-align: center;
+     background-color: black;
+     color: white;
+     height: 10vh;
+     width: 100%;
+     /* margin-top: -10vh; */
+     
+  }
+
+  .maintain {
+      /* margin-top: 10vh; */
+      background-color: white;
+      border-color:red;
+      border-style: solid;
+      text-align: center;
+  }
