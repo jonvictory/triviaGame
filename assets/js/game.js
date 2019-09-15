@@ -1,5 +1,9 @@
 window.onload() = function() {
 
+    var pCorrCount = 0
+    var pIncorrCount = 0
+    var corrAnsDisp
+
     var questArr = [{
         question: "q1 holder",
         corrAns: "this is a correct ans for q1",
@@ -117,5 +121,38 @@ var timer = {
             $("#timerDisp").css("color", "red");
         }
 
-        
+    
+        if (timer.seconds === 0) {
+            pIncorrCount++;
+            $("#" + corrAnsDisp).addClass("correct");
+            $("#updateDisp").html("<p>TIME is GONE!</p><p>The correct answer was: <span class='correct-text'>" + corrAnsDisp + "</span>.</p>");
+            
+            timer.stop();
+            
+          
+            $("#choiceDisp").removeClass("active");
+
+          
+            setTimeout(displayQuestion, 3000);
+        }
+    },
+
+    // function to start timer
+    run: function() {
+
+        clearInterval(intervalId);
+
+        intervalId = setInterval(timer.decrement, 1000);
+
+        $("#timerText").html("Time remaining: <span id='time-left'>10</span> <span id='seconds'>seconds</span>");
+
+        $("#timerDisp").text(10);
+        timer.seconds = 10;
+    },
+
+    stop: function() {
+
+        clearInterval(intervalId);
+    }
+};
 }
