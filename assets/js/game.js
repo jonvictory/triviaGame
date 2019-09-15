@@ -3,6 +3,7 @@ window.onload() = function() {
     var pCorrCount = 0
     var pIncorrCount = 0
     var corrAnsDisp
+    var currQuest 
 
     var questArr = [{
         question: "q1 holder",
@@ -121,7 +122,7 @@ var timer = {
             $("#timerDisp").css("color", "red");
         }
 
-    
+        
         if (timer.seconds === 0) {
             pIncorrCount++;
             $("#" + corrAnsDisp).addClass("correct");
@@ -129,11 +130,11 @@ var timer = {
             
             timer.stop();
             
-          
+           
             $("#choiceDisp").removeClass("active");
 
           
-            setTimeout(displayQuestion, 3000);
+            setTimeout(dispQuest, 3000);
         }
     },
 
@@ -155,4 +156,64 @@ var timer = {
         clearInterval(intervalId);
     }
 };
+
+// function to display questions and answers
+
+function dispQuest() {
+
+
+   
+    if (q < questionsAnswersArray.length) {
+
+        
+        $("#current-question, #answer-list, #choiceDisp").empty();
+        timer.run();
+
+        
+        currQuest = questArr[q].question;
+
+       
+        $("#curr-quest").append("<h2>" + currQuest + "</h2>");
+
+       
+        var answers = [];
+        answers = [questArr[q].answer, questArray[q].incorrAns[0], questArr[q].incorrAns[1], questArr[q].incorrAns[2]];
+
+       
+    var actualIndex = questArr.length
+    var tempVal
+    var randomIndex
+
+    while (0 !== actualIndex) {
+        Math.floor(Math.random() * actualIndex)
+        actualIndex -= 1
+
+    tempVal = questArr[actualIndex];
+    questArr[actualIndex] = questArr[randomIndex];
+    questArr[randomIndex] = tempVal;
+
+    }
+
+       
+        corrAns = questArr[q].answer;
+
+       
+        corrAnsDisp = corrAns.replace(/\s/g, "");
+
+       
+        $("#choiceDisp").addClass("active");
+
+        
+        for (var i = 0; i < 4; i++) {
+            $("#choiceDisp").append("<li class='answer-item text-center' id='" + answers[i].replace(/\s/g, "") + "'>" + answers[i] + "</li>");
+        }
+
+      
+        q++;
+
+    
+    } else {
+        endGame();
+    }
+}
 }
