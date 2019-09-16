@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <script src="jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 </head>
@@ -20,7 +20,11 @@
                 <h1>Trivia GAME!</h1>
             </header>
     
-
+            <div class="startScreen">
+                <div id="gameStart" class="container startButt">
+                    
+                </div>
+            </div>
     <div class="bg">
         <div class="container maintain">
             <div class="row">
@@ -30,23 +34,25 @@
                 </div>
             </div>
 
-            <div class="updateDisp">
-
-            </div>
+            
             <div class="row">
-                <div class="col-md-12 question">
-                    <p>This is a question holder</p>
+                <div id="currQuestion" class="col-md-12 question">
+                    
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-12 choiceDisp">
-                    <p>This is a choices holder</p>
+                    <ul id="ansList">
+                        </ul>
                 </div>
                 <div class="updateDisp">
                     <p>Here is text in the update disp</p>
                 </div>
             </div>
+
+        </div>
+        <div class="updateDisp">
 
         </div>
     </div>

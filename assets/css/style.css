@@ -4,11 +4,12 @@ body, html {
   }
   
   .bg {
-    background-image: url("../images/TETSUO.jpg");
+    background-image: url("../images/backg.jpg");
     height: 100vh; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: none;
   }
 
   header {
@@ -20,16 +21,42 @@ body, html {
      /* margin-top: -10vh; */
      
   }
+  .startScreen {
+    background-image: url("../images/startScreen.jpg");
+    height: 100vh; 
+    background-color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
 
+  }
+
+  .startButt {
+      border-style: solid;
+      border-color: red;
+      border-width: 10px;
+      height: 80vh;
+
+  }
   .maintain {
       /* margin-top: 10vh; */
       background-color: white;
       border-color:red;
       border-style: solid;
       text-align: center;
+ 
   }
 
   .updateDisp {
       display: none;
       
+  }
+
+  .ansList {
+    list-style-type: none;
+  }
+  .ansBullet {
+      border-bottom-style: solid;
+      border-color: black
   }

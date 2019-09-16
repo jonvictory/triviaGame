@@ -1,96 +1,67 @@
-window.onload() = function() {
+window.onload = function() {
 
     var pCorrCount = 0
     var pIncorrCount = 0
     var corrAnsDisp
     var currQuest 
+    var q = 0
+    var userChoice
+    var intervalId
 
     var questArr = [{
         question: "q1 holder",
         corrAns: "this is a correct ans for q1",
-        incorrAnsOne: "this is 1 incorr ans for q1",
-        incorrAnsTwo: "this is 2 incorr ans for q1",
-        incorrAnsThree: "this is 3 incorr ans for q1",
-        status: null,
+        incorrAnsOne: ["this is 1 incorr ans for q1", "this is 2 incorr ans for q1", "this is 3 incorr ans for q1"]
     },
     {
         question: "q2 holder",
         corrAns: "this is a correct ans for q2",
-        incorrAnsOne: "this is 1 incorr ans for q2",
-        incorrAnsTwo: "this is 2 incorr ans for q2",
-        incorrAnsThree: "this is 3 incorr ans for q2",
-        status: null,
+        incorrAnsOne: ["this is 1 incorr ans for q2", "this is 2 incorr ans for q2", "this is 3 incorr ans for q2"]
         
     },
     {
         question: "q3 holder",
         corrAns: "this is a correct ans for q3",
-        incorrAnsOne: "this is 1 incorr ans for q3",
-        incorrAnsTwo: "this is 2 incorr ans for q3",
-        incorrAnsThree: "this is 3 incorr ans for q3",
-        status: null,
+        incorrAnsOne: ["this is 1 incorr ans for q3", "this is 2 incorr ans for q3", "this is 3 incorr ans for q3"]
         
     },
     {
         question: "q4 holder",
         corrAns: "this is a correct ans for q4",
-        incorrAnsOne: "this is 1 incorr ans for q4",
-        incorrAnsTwo: "this is 2 incorr ans for q4",
-        incorrAnsThree: "this is 3 incorr ans for q4",
-        status: null,
-        
+        incorrAnsOne: ["this is 1 incorr ans for q4", "this is 2 incorr ans for q4", "this is 3 incorr ans for q4"]
     },
     {
         question: "q5 holder",
         corrAns: "this is a correct ans for q5",
-        incorrAnsOne: "this is 1 incorr ans for q5",
-        incorrAnsTwo: "this is 2 incorr ans for q5",
-        incorrAnsThree: "this is 3 incorr ans for q5",
-        status: null,
+        incorrAnsOne: ["this is 1 incorr ans for q5", "this is 2 incorr ans for q5", "this is 3 incorr ans for q5"]
         
     },
     {
         question: "q6 holder",
         corrAns: "this is a correct ans for q6",
-        incorrAnsOne: "this is 1 incorr ans for q6",
-        incorrAnsTwo: "this is 2 incorr ans for q6",
-        incorrAnsThree: "this is 3 incorr ans for q6",
-        status: null,
+        incorrAnsOne: ["this is 1 incorr ans for q6", "this is 2 incorr ans for q6", "this is 3 incorr ans for q6"]
         
     },
     {
         question: "q7 holder",
         corrAns: "this is a correct ans for q7",
-        incorrAnsOne: "this is 1 incorr ans for q7",
-        incorrAnsTwo: "this is 2 incorr ans for q7",
-        incorrAnsThree: "this is 3 incorr ans for q7",
-        status: null,
+        incorrAnsOne: ["this is 1 incorr ans for q7", "this is 2 incorr ans for q7", "this is 3 incorr ans for q7",]
     },
     {
         question: "q8 holder",
         corrAns: "this is a correct ans for q8",
-        incorrAnsOne: "this is 1 incorr ans for q8",
-        incorrAnsTwo: "this is 2 incorr ans for q8",
-        incorrAnsThree: "this is 3 incorr ans for q8",
-        status: null,
+        incorrAnsOne: ["this is 1 incorr ans for q8", "this is 2 incorr ans for q8", "this is 3 incorr ans for q8"]
     },
     {
         question: "q9 holder",
         corrAns: "this is a correct ans for q9",
-        incorrAnsOne: "this is 1 incorr ans for q9",
-        incorrAnsTwo: "this is 2 incorr ans for q9",
-        incorrAnsThree: "this is 3 incorr ans for q9",
-        status: null,
+        incorrAnsOne: ["this is 1 incorr ans for q9", "this is 2 incorr ans for q9", "this is 3 incorr ans for q9"]
         
     },
     {
         question: "q10 holder",
         corrAns: "this is a correct ans for q10",
-        incorrAnsOne: "this is 1 incorr ans for q10",
-        incorrAnsTwo: "this is 2 incorr ans for q10",
-        incorrAnsThree: "this is 3 incorr ans for q10",
-        status: null,
-        
+        incorrAnsOne: ["this is 1 incorr ans for q10", "this is 2 incorr ans for q10", "this is 3 incorr ans for q10"]
     }
 ];
 
@@ -131,9 +102,9 @@ var timer = {
             timer.stop();
             
            
-            $("#choiceDisp").removeClass("active");
+            $("#ansList").removeClass("active");
 
-          
+            
             setTimeout(dispQuest, 3000);
         }
     },
@@ -163,57 +134,143 @@ function dispQuest() {
 
 
    
-    if (q < questionsAnswersArray.length) {
+    if (q < questArr.length) {
 
         
-        $("#current-question, #answer-list, #choiceDisp").empty();
+        $("#currQuestion, #answer-list, #corr-incorr").empty();
         timer.run();
 
         
         currQuest = questArr[q].question;
 
        
-        $("#curr-quest").append("<h2>" + currQuest + "</h2>");
+        $("#currQuestion").append("<h2>" + currQuest + "</h2>");
 
-       
+        
         var answers = [];
-        answers = [questArr[q].answer, questArray[q].incorrAns[0], questArr[q].incorrAns[1], questArr[q].incorrAns[2]];
+        answers = [questArr[q].corrAns, questArr[q].incorrAnsOne[0], questArr[q].incorrAnsOne[1], questArr[q].incorrAnsOne[2]];
 
-       
-    var actualIndex = questArr.length
+        
+    var actualIndex = answers.length
     var tempVal
     var randomIndex
 
     while (0 !== actualIndex) {
-        Math.floor(Math.random() * actualIndex)
+        randomIndex = Math.floor(Math.random() * actualIndex)
         actualIndex -= 1
 
-    tempVal = questArr[actualIndex];
-    questArr[actualIndex] = questArr[randomIndex];
-    questArr[randomIndex] = tempVal;
+    tempVal = answers[actualIndex];
+    answers[actualIndex] = answers[randomIndex];
+    answers[randomIndex] = tempVal; 
 
     }
 
        
-        corrAns = questArr[q].answer;
-
-       
-        corrAnsDisp = corrAns.replace(/\s/g, "");
-
-       
-        $("#choiceDisp").addClass("active");
+        corrAnsText = questArr[q].corrAns;
 
         
+        corrAnsDisp = corrAnsText.replace(/\s/g, "");
+
+        
+        $("#ansList").addClass("active");
+
+       
         for (var i = 0; i < 4; i++) {
-            $("#choiceDisp").append("<li class='answer-item text-center' id='" + answers[i].replace(/\s/g, "") + "'>" + answers[i] + "</li>");
+            $("#ansList").append("<li class='ansBullet' id='" + answers[i].replace(/\s/g, "") + "'>" + answers[i] + "</li>");
         }
 
-      
+       
         q++;
 
-    
+    // end the game once the user has seen every question
     } else {
         endGame();
     }
 }
+
+
+function startGame() {
+    randomizer();
+    dispQuest();
+}
+
+
+function endGame() {
+    timer.stop();
+    $("#current-question, #ansList, #timer, #ansDisp").empty();
+    $("#result-holder").html("<button id='results'><i class='fa fa-calculator'></i>&nbsp; See your results</button>");
+}
+
+ 
+ function results() {
+    $(".tally").append("<h2 class='mb-1'>Here's how you did:</h2>").append("<p>Correct answers: " + pCorrCount + "</p>").append("<p>Incorrect answers: " + pIncorrCount + "</p>");
+
+
+}
+
+// CLICK EVENTS
+
+            // click events for right or wrong answers
+            $(document).on("click", ".active .ansBullet", function() {
+
+                
+                timer.stop();
+                userChoice = $(this).text();
+
+                // if the answer is correct
+                if (userChoice === corrAns) {
+
+                    
+                    pcorrCount++;
+                    $(this).addClass("correct");
+                    $("#corr-incorr").html("<p class='correct-text'>YESH!</p><p class='correct-text'>Correct!</p>");
+
+                    
+                    $("#ansLlist").removeClass("active");
+
+                    
+                    setTimeout(dispQuest, 3000);
+
+                // if answer is incorrect
+                } else {
+
+                   
+                    incorrectCount++;
+                    $(this).addClass("wrong");
+                    $("#" + corrAnsDisp).addClass("correct");
+                    $("#corr-incorr").html("<p>Wrong!</p><p>It was <span class='correct-text'>" + corrAns + "</span></p>");
+
+                    
+                    $("#ansList").removeClass("active");
+
+                   
+                    setTimeout(dispQuest, 3000);
+                }
+            });
+
+            // click event to start game
+            $("#gameStart").on("click", function() {
+                $(".startScreen").hide();
+                $(".bg").show();
+                startGame();
+            });
+
+            
+            $(document).on("click", "#results", function() {
+                $("#currQuest").empty();
+                $("maintain").hide();
+                $(".endgame").show();
+                results();
+            });
+
+            
+            $(document).on("click", "#reset-game", function() {
+                $(".tally, #result-holder").empty();
+                $(".endgame").hide();
+                $(".header-container").show();
+                q = 0;
+                correctCount = 0;
+                incorrectCount = 0;
+            });
+
 }
