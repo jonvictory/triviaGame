@@ -12,12 +12,13 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <link href="https://fonts.googleapis.com/css?family=Cute+Font|Press+Start+2P|Turret+Road&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
     <header>
-        <h1>Trivia GAME!</h1>
+        <h1>Trivia SUCKS!</h1>
     </header>
 
     <div class="startScreen">
@@ -27,23 +28,21 @@
         
     </div>
     <div class="bg">
-            <div id="pEndGame" class="container">
-                    <div class="row maintainRow">
+            <div id="pEndGame" class="container contEnd">
+                    <div class="row">
                             <div class="col-md-4"></div>
                             <div class="col-md-4"></div>
                         <div class="col-md-4"></div>
                     </div>
-                    <div class="row maintainRow">
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4">
+                    <div class="row">
+                            
+                            <div class="col-md-12 timed">
                                 <div class="score"></div>
                             </div>
-                        <div class="col-md-4"></div>
-                    </div>
-                <div class="row maintainRow">
+                        </div>
+                <div class="row">
                     <div class="col-md-4"></div>
-                    <div class="col-md-4">
-                
+                    <div class="col-md-4" style="padding: 10em 0em 0em 6em">
                     <div id="resetButt" class="gameButt rounded">
                             <p>Reset Game</p>
                         </div>
@@ -57,7 +56,7 @@
                     <div class="updateDisp"></div>
                 </div>
                 <div class="col-md-4 timer">
-                    <p id="timerText"></p>
+                    <p id="timerText" class="timed"></p>
                     <p id="timerDisp">This is a timer holder</p>
                     <div class="col-md-4"></div>
                 </div>
@@ -71,17 +70,25 @@
             </div>
 
             <div class="row maintainRow">
-                <div class="col-md-4">
-                    <div id="corr-incorr"></div>
-                </div>
-                <div class="col-md-4 choiceDisp">
+                    <div id="corr-incorr" class="col-md-4"></div>
+                <div class="col-md-4 choiceDisp timed" class="col-md-4">
                     <ul id="ansList">
                     </ul>
                 </div>
-                <div class="col-md-4" style="padding-top: 150px;">
-                    <div id="gameEndButt" class="gameButt rounded">
-                        <p>End Game :(</p>
+                <div class="col-md-4">
+                    <div class="row">
+                    <div class="blankButt rounded"></div>
+                </div>
+                    <div class="row">
+                            <div class="blankButt rounded"></div>
                     </div>
+                    <div class="row">
+                            <div class="blankButt rounded"></div>
+                            <div id="gameEndButt" class="gameButt rounded">
+                                    <p>End Game :(</p>
+                                </div>
+                    </div>
+                    
                 </div>
 
             </div>

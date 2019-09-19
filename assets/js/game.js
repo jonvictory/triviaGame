@@ -98,7 +98,7 @@ var timer = {
         if (timer.seconds === 0) {
             pIncorrCount++;
             $("#" + corrAnsDisp).addClass("correct");
-            $(".updateDisp").html("<p>TIME is GONE!</p><p>The correct answer was: <span class='correct-text'>" + corrAnsDisp + "</span>.</p>");
+            $(".updateDisp").html("<p>TIME is GONE!</p><p>The correct answer was: " + corrAnsDisp + ".</p>");
             
             timer.stop();
             
@@ -178,6 +178,7 @@ function dispQuest() {
 function startGame() {
     randomizer();
     dispQuest();
+    // $("header").hide()
 }
 
 // GAME OVER fucntion
@@ -187,6 +188,7 @@ function endGame() {
     // $("#pEndGame").html("<button id='endScore' class='gameButt'><See your results</button>");
                 $(".maintain").hide();
                 $("#pEndGame").show();
+                // $("header").show()
                 $(".endgame").show();
                 results();
 }

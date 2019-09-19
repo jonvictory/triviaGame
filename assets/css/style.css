@@ -2,10 +2,19 @@ body, html {
     height: 100vh;
     margin: 0;
   }
-  
+
+h1, h2, h3, h4, h5 {
+font-family: 'Turret Road', cursive;
+
+font-family: 'Press Start 2P', cursive;
+}
+p {
+  font-family: 'Cute Font', cursive;
+  font-size: 2em;
+}
   .bg {
     background-image: url("../images/backg.jpg");
-    height: 100vh; 
+    height: 100%; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -43,56 +52,84 @@ body, html {
       /* margin-top: 10vh; */
       background-color: blue;
       color: white;
-      border-color:red;
-      border-style: solid;
+      border-color:white;
+      border-style: outset;
+      border-width: 10px;
       text-align: center;
-      height: 75vh;
-      padding: 10px;
+      height: 90vh;
       display: none;
+      padding: 15px 20px 15px 20px;
  
   }
   .maintainRow
   {
-    height: 30vh;
+    padding: 5px 0 5px 0;
+    height: 40%;
   }
   .maintainQRow {
-    height: 15vh;
+    height: 20%;
+  }
+  .question {
+    color: red;
+    padding-top: 20px;
+    border-color:white;
+    border-style: inset;
+    border-width: 10px;
+    background-color: black;
   }
 
   .updateDisp {
       display: block;
-      background-color: blue;
-      color: white;
-      border-color: red;
-      border-style: ridge;
+      background-color: black;
+      color: red;
+      border-color: white;
+      border-style: inset;
       border-width: 10px;
-      height: 50%;
+      height: 100%;
       width: 100%;
       padding-top: 10px;
   }
 #corr-incorr {
   display: block;
-  background-color: blue;
-      color: white;
-      border-color: red;
-      border-style: ridge;
+  background-color: black;
+      color: red;
+      border-color: white;
+      border-style: inset;
       border-width: 10px;
-      height: 50%;
+      height: 100%;
       width: 100%;
       padding-top: 10px;
 }
 
+.timed {
+  background-color: black;
+      color: white;
+      border-color: white;
+      border-style: inset;
+      border-width: 10px;
+      height: 100%;
+      width: 100%;
+      padding-top: 20px;
+
+}
   .ansList {
     list-style-type: none;
+    
   }
   .ansBullet {
-      border-bottom-style: solid;
-      border-color: black
+    list-style-type: none;
+      color: white;
+      font-family: 'Cute Font', cursive;
+      font-size: 2em;
+      padding-right: 1em;
+  }
+  li.ansBullet:hover {
+    background-color: red;
   }
 
   .gameButt {
     background: grey;
-    border-style: ridge;
+    border-style: outset;
     border-color: grey;
     border-width: 10px;
     width: 10em;
@@ -100,15 +137,28 @@ body, html {
     padding-top: 10px;
     text-align: center;
   }
+  .blankButt {
+    background: rgba(128, 128, 128, 0);
+    border-style: outset;
+    border-color: rgba(128, 128, 128, 0);
+    border-width: 10px;
+    width: 10em;
+    height: 5em;
+    padding-top: 10px;
+    text-align: center;
+
+  }
 
   #pEndGame {
     display: none;
     background-color: blue;
-    color: white;
-    border-color:red;
-    border-style: solid;
-    text-align: center;
-    height: 75vh;
-    padding: 10px;
-    width: 100%;
+      color: white;
+      border-color:white;
+      border-style: outset;
+      border-width: 10px;
+      text-align: center;
+      height: 80vh;
+      display: none;
+      
+      padding: 15px 20px 15px 20px;
   }
