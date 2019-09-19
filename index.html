@@ -16,60 +16,84 @@
 </head>
 
 <body>
-        <header>
-                <h1>Trivia GAME!</h1>
-            </header>
-    
-            <div class="startScreen">
-                <div id="gameStart" class="container startButt">
-                    
-                </div>
-            </div>
+    <header>
+        <h1>Trivia GAME!</h1>
+    </header>
+
+    <div class="startScreen">
+        <div id="gameStart" class="container startButt">
+
+        </div>
+        
+    </div>
     <div class="bg">
+            <div id="pEndGame" class="container">
+                    <div class="row maintainRow">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                    </div>
+                    <div class="row maintainRow">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <div class="score"></div>
+                            </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                <div class="row maintainRow">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                
+                    <div id="resetButt" class="gameButt rounded">
+                            <p>Reset Game</p>
+                        </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+                </div>
         <div class="container maintain">
-            <div class="row">
-                <div class="col-md-12 timer">
+            <div class="row maintainRow">
+                <div class="col-md-4">
+                    <div class="updateDisp"></div>
+                </div>
+                <div class="col-md-4 timer">
                     <p id="timerText"></p>
                     <p id="timerDisp">This is a timer holder</p>
+                    <div class="col-md-4"></div>
                 </div>
             </div>
 
-            
-            <div class="row">
-                <div id="currQuestion" class="col-md-12 question">
+
+            <div class="row maintainQRow">
+                <div id="currQuest" class="col-md-12 question">
                     
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-12 choiceDisp">
+            <div class="row maintainRow">
+                <div class="col-md-4">
+                    <div id="corr-incorr"></div>
+                </div>
+                <div class="col-md-4 choiceDisp">
                     <ul id="ansList">
-                        </ul>
+                    </ul>
                 </div>
-                <div class="updateDisp">
-                    <p>Here is text in the update disp</p>
+                <div class="col-md-4" style="padding-top: 150px;">
+                    <div id="gameEndButt" class="gameButt rounded">
+                        <p>End Game :(</p>
+                    </div>
                 </div>
+
             </div>
-
-        </div>
-        <div class="updateDisp">
-
         </div>
     </div>
-    
+    </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-        <script type="text/javascript" src="assets\js\game.js">
-        </script>
+
+
+    <script type="text/javascript" src="assets\js\game.js">
+    </script>
     <script>
 
     </script>

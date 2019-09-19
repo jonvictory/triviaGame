@@ -8,7 +8,8 @@ window.onload = function() {
     var userChoice
     var intervalId
 
-    var questArr = [{
+    var questArr = [
+        {
         question: "q1 holder",
         corrAns: "this is a correct ans for q1",
         incorrAnsOne: ["this is 1 incorr ans for q1", "this is 2 incorr ans for q1", "this is 3 incorr ans for q1"]
@@ -71,7 +72,7 @@ function randomizer() {
     var randomIndex
 
     while (0 !== actualIndex) {
-        Math.floor(Math.random() * actualIndex)
+        randomIndex = Math.floor(Math.random() * actualIndex)
         actualIndex -= 1
 
     tempVal = questArr[actualIndex];
@@ -97,14 +98,12 @@ var timer = {
         if (timer.seconds === 0) {
             pIncorrCount++;
             $("#" + corrAnsDisp).addClass("correct");
-            $("#updateDisp").html("<p>TIME is GONE!</p><p>The correct answer was: <span class='correct-text'>" + corrAnsDisp + "</span>.</p>");
+            $(".updateDisp").html("<p>TIME is GONE!</p><p>The correct answer was: <span class='correct-text'>" + corrAnsDisp + "</span>.</p>");
             
             timer.stop();
             
-           
             $("#ansList").removeClass("active");
 
-            
             setTimeout(dispQuest, 3000);
         }
     },
@@ -116,12 +115,12 @@ var timer = {
 
         intervalId = setInterval(timer.decrement, 1000);
 
-        $("#timerText").html("Time remaining: <span id='time-left'>10</span> <span id='seconds'>seconds</span>");
+        $("#timerText").html("Time remaining: <span id='timerDisp'>10</span> <span id='seconds'>seconds</span>");
 
         $("#timerDisp").text(10);
         timer.seconds = 10;
     },
-
+ 
     stop: function() {
 
         clearInterval(intervalId);
@@ -132,32 +131,25 @@ var timer = {
 
 function dispQuest() {
 
-
-   
     if (q < questArr.length) {
 
-        
-        $("#currQuestion, #answer-list, #corr-incorr").empty();
+        $("#currQuest, #ansList, #corr-incorr, .updateDisp").empty();
         timer.run();
 
-        
         currQuest = questArr[q].question;
 
-       
-        $("#currQuestion").append("<h2>" + currQuest + "</h2>");
+        $("#currQuest").append("<h2>" + currQuest + "</h2>");
 
-        
         var answers = [];
         answers = [questArr[q].corrAns, questArr[q].incorrAnsOne[0], questArr[q].incorrAnsOne[1], questArr[q].incorrAnsOne[2]];
 
-        
-    var actualIndex = answers.length
-    var tempVal
-    var randomIndex
+    var actualIndex = answers.length;
+    var tempVal;
+    var randomIndex;
 
     while (0 !== actualIndex) {
-        randomIndex = Math.floor(Math.random() * actualIndex)
-        actualIndex -= 1
+        randomIndex = Math.floor(Math.random() * actualIndex);
+        actualIndex -= 1;
 
     tempVal = answers[actualIndex];
     answers[actualIndex] = answers[randomIndex];
@@ -165,112 +157,102 @@ function dispQuest() {
 
     }
 
-       
         corrAnsText = questArr[q].corrAns;
 
-        
         corrAnsDisp = corrAnsText.replace(/\s/g, "");
 
-        
         $("#ansList").addClass("active");
 
-       
         for (var i = 0; i < 4; i++) {
             $("#ansList").append("<li class='ansBullet' id='" + answers[i].replace(/\s/g, "") + "'>" + answers[i] + "</li>");
         }
 
-       
         q++;
 
-    // end the game once the user has seen every question
     } else {
         endGame();
     }
 }
 
-
+// Get Start Fucntion!
 function startGame() {
     randomizer();
     dispQuest();
 }
 
-
+// GAME OVER fucntion
 function endGame() {
     timer.stop();
-    $("#current-question, #ansList, #timer, #ansDisp").empty();
-    $("#result-holder").html("<button id='results'><i class='fa fa-calculator'></i>&nbsp; See your results</button>");
+    $("#currQuest, #ansList, #timerDisp, .ansDisp, #corr-incorr").empty();
+    // $("#pEndGame").html("<button id='endScore' class='gameButt'><See your results</button>");
+                $(".maintain").hide();
+                $("#pEndGame").show();
+                $(".endgame").show();
+                results();
 }
 
- 
+ // score function, for the end my friend.
  function results() {
-    $(".tally").append("<h2 class='mb-1'>Here's how you did:</h2>").append("<p>Correct answers: " + pCorrCount + "</p>").append("<p>Incorrect answers: " + pIncorrCount + "</p>");
-
+    $(".score").append("<h2 class='mb-1'>This is the end, my friend:</h2>").append("<p>Correct answers: " + pCorrCount + "</p>").append("<p>Incorrect answers: " + pIncorrCount + "</p>");
 
 }
 
-// CLICK EVENTS
-
-            // click events for right or wrong answers
+// CLICKERS!
             $(document).on("click", ".active .ansBullet", function() {
 
-                
                 timer.stop();
                 userChoice = $(this).text();
 
-                // if the answer is correct
-                if (userChoice === corrAns) {
+                if (userChoice === corrAnsText) {
 
-                    
-                    pcorrCount++;
+                    pCorrCount++;
                     $(this).addClass("correct");
                     $("#corr-incorr").html("<p class='correct-text'>YESH!</p><p class='correct-text'>Correct!</p>");
 
-                    
-                    $("#ansLlist").removeClass("active");
-
-                    
-                    setTimeout(dispQuest, 3000);
-
-                // if answer is incorrect
-                } else {
-
-                   
-                    incorrectCount++;
-                    $(this).addClass("wrong");
-                    $("#" + corrAnsDisp).addClass("correct");
-                    $("#corr-incorr").html("<p>Wrong!</p><p>It was <span class='correct-text'>" + corrAns + "</span></p>");
-
-                    
                     $("#ansList").removeClass("active");
 
-                   
+                    setTimeout(dispQuest, 3000);
+
+                } else {
+
+                    pIncorrCount++;
+                    $(this).addClass("wrong");
+                    $("#" + corrAnsDisp).addClass("correct");
+                    $(".updateDisp").slideDown("slow");
+                    $("#corr-incorr").html("<p>Wrong!</p><p>It was <span class='correct-text'>" + corrAnsText + "</span></p>");
+
+                    $("#ansList").removeClass("active");
+
                     setTimeout(dispQuest, 3000);
                 }
             });
 
-            // click event to start game
+            // Player Start!
             $("#gameStart").on("click", function() {
                 $(".startScreen").hide();
                 $(".bg").show();
+                $(".maintain").show();
                 startGame();
             });
 
-            
-            $(document).on("click", "#results", function() {
+            // End Game early
+            $(document).on("click", "#gameEndButt", function() {
                 $("#currQuest").empty();
-                $("maintain").hide();
+                $(".maintain").hide();
+                $("#pEndGame").show();
                 $(".endgame").show();
                 results();
             });
 
-            
-            $(document).on("click", "#reset-game", function() {
-                $(".tally, #result-holder").empty();
-                $(".endgame").hide();
-                $(".header-container").show();
+            // RESET!
+            $(document).on("click", "#resetButt", function() {
+                $(".score, #result-holder").empty();
+                $("#pEndGame").hide();
+                $(".bg").hide();
+                $(".startScreen").show();
                 q = 0;
-                correctCount = 0;
-                incorrectCount = 0;
+                pCorrCount = 0;
+                pIncorrCount = 0;
             });
 
 }
