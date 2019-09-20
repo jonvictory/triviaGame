@@ -10,59 +10,59 @@ window.onload = function() {
 
     var questArr = [
         {
-        question: "q1 holder",
-        corrAns: "this is a correct ans for q1",
-        incorrAnsOne: ["this is 1 incorr ans for q1", "this is 2 incorr ans for q1", "this is 3 incorr ans for q1"]
+        question: "What do you get when you cross an owl with a bungie cord?",
+        corrAns: "My Ass",
+        incorrAnsOne: ["A Bowel", "A Towel", "Milk-duds"]
     },
     {
-        question: "q2 holder",
-        corrAns: "this is a correct ans for q2",
-        incorrAnsOne: ["this is 1 incorr ans for q2", "this is 2 incorr ans for q2", "this is 3 incorr ans for q2"]
+        question: "What country is the Evil Council from?",
+        corrAns: "France",
+        incorrAnsOne: ["Canada", "Germany", "Mars"]
         
     },
     {
-        question: "q3 holder",
-        corrAns: "this is a correct ans for q3",
-        incorrAnsOne: ["this is 1 incorr ans for q3", "this is 2 incorr ans for q3", "this is 3 incorr ans for q3"]
+        question: "Birdie, Birdie, ____________ . ",
+        corrAns: "Birdie",
+        incorrAnsOne: ["Tiger", "Tonguey", "Towel"]
         
     },
     {
-        question: "q4 holder",
-        corrAns: "this is a correct ans for q4",
-        incorrAnsOne: ["this is 1 incorr ans for q4", "this is 2 incorr ans for q4", "this is 3 incorr ans for q4"]
+        question: "My nipples look like __________ . ",
+        corrAns: "Milk-duds",
+        incorrAnsOne: ["swinging chain", "cow", "waterfall"]
     },
     {
-        question: "q5 holder",
-        corrAns: "this is a correct ans for q5",
-        incorrAnsOne: ["this is 1 incorr ans for q5", "this is 2 incorr ans for q5", "this is 3 incorr ans for q5"]
+        question: "From now on, you will all call me be the game: ____________ ? ",
+        corrAns: "Aw jeeze did I say game",
+        incorrAnsOne: ["Evil Betty", "Wind Blows", "Chosen One"]
         
     },
     {
-        question: "q6 holder",
-        corrAns: "this is a correct ans for q6",
-        incorrAnsOne: ["this is 1 incorr ans for q6", "this is 2 incorr ans for q6", "this is 3 incorr ans for q6"]
+        question: "You should be able to: ________ . ",
+        corrAns: "beat em now",
+        incorrAnsOne: ["rub it in my hair", "kill the dog", "Yeee-Yi-Yow-YOOOOIIIIIIII!"]
         
     },
     {
-        question: "q7 holder",
-        corrAns: "this is a correct ans for q7",
-        incorrAnsOne: ["this is 1 incorr ans for q7", "this is 2 incorr ans for q7", "this is 3 incorr ans for q7",]
+        question: "A-wee-a-wee-ah- ____________ ",
+        corrAns: "woo",
+        incorrAnsOne: ["birdie", "YOOOOOOIIII", "wrrrcchhh. . .",]
     },
     {
-        question: "q8 holder",
-        corrAns: "this is a correct ans for q8",
-        incorrAnsOne: ["this is 1 incorr ans for q8", "this is 2 incorr ans for q8", "this is 3 incorr ans for q8"]
+        question: "Taco Bell, Taco Bell. Product Placement for: _________ . ",
+        corrAns: "Taco Bell",
+        incorrAnsOne: ["Nacho", "Burrito", "Ranchorito"]
     },
     {
-        question: "q9 holder",
-        corrAns: "this is a correct ans for q9",
-        incorrAnsOne: ["this is 1 incorr ans for q9", "this is 2 incorr ans for q9", "this is 3 incorr ans for q9"]
+        question: "Yes, play me like a ________ . ",
+        corrAns: "drum",
+        incorrAnsOne: ["swinging chain", "Chosen One", "Stomach Blood"]
         
     },
     {
-        question: "q10 holder",
-        corrAns: "this is a correct ans for q10",
-        incorrAnsOne: ["this is 1 incorr ans for q10", "this is 2 incorr ans for q10", "this is 3 incorr ans for q10"]
+        question: "I'm a magician, your clothes are: ______ !",
+        corrAns: "red",
+        incorrAnsOne: ["black again", "blue", "curly-cue"]
     }
 ];
 
@@ -209,7 +209,7 @@ function endGame() {
 
                     pCorrCount++;
                     $(this).addClass("correct");
-                    $("#corr-incorr").html("<p class='correct-text'>YESH!</p><p class='correct-text'>Correct!</p>");
+                    $("#corr-incorr").html("<p class='correct-text'>Even a broken watch manages to be right twice a day.</p><p class='correct-text'>Correct!</p>");
 
                     $("#ansList").removeClass("active");
 
@@ -221,7 +221,7 @@ function endGame() {
                     $(this).addClass("wrong");
                     $("#" + corrAnsDisp).addClass("correct");
                     $(".updateDisp").slideDown("slow");
-                    $("#corr-incorr").html("<p>Wrong!</p><p>It was <span class='correct-text'>" + corrAnsText + "</span></p>");
+                    $("#corr-incorr").html("<p>You should give up, spare yourself the embaressment.</p><p>It was <span class='correct-text'>" + corrAnsText + "</span></p>");
 
                     $("#ansList").removeClass("active");
 

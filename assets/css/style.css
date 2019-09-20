@@ -42,10 +42,8 @@ p {
   }
 
   .startButt {
-      border-style: solid;
-      border-color: red;
-      border-width: 10px;
-      height: 80vh;
+      height: 100%;
+      width: 100%;
 
   }
   .maintain {
